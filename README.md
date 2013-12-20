@@ -6,11 +6,12 @@ The following steps demostrate how to re-produce the NameError.
 
 ### 1. Clone the project
 
-  `git clone https://github.com/acenqiu/name_error_test.git`
+  git clone https://github.com/acenqiu/name_error_test.git
 
-### 2. Create the production database
+### 2. Bundle install & Create the production database
 
-  `rake db:create RAILS_ENV=production`
+  bundle install
+  rake db:create RAILS_ENV=production
   
 ### 3. Run the production console to check everything is right
 
@@ -34,6 +35,6 @@ And you should see the error raised.
 
 ## What I know
 
-If we disable eager_loading in production.rb, everything is fine, but this is not what I want. No matter which action controller I put the `rescue_from ActiveRecord::RecordInvalid` in, the error still exists.
+If we disable eager_load in production.rb, everything is fine, but this is not what I want. No matter which action controller I put the `rescue_from ActiveRecord::RecordInvalid` in, the error still exists.
 
 `rescue_from ActiveRecord::RecordNotFound` will survive from this error.
