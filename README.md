@@ -6,16 +6,19 @@ The following steps demostrate how to re-produce the NameError.
 
 ### 1. Clone the project
 
-  git clone https://github.com/acenqiu/name_error_test.git
+    git clone https://github.com/acenqiu/name_error_test.git
+
 
 ### 2. Bundle install & Create the production database
 
-  bundle install
-  rake db:create RAILS_ENV=production
+
+    bundle install
+    rake db:create RAILS_ENV=production
+
   
 ### 3. Run the production console to check everything is right
 
-  `rails console production`
+    rails console production
   
 ## Reproduce
   
@@ -23,15 +26,15 @@ The following steps demostrate how to re-produce the NameError.
 
 Edit the file `application_controller.rb`, comment out following line.
 
-  # rescue_from ActiveRecord::RecordInvalid, with: :show_errors
+    # rescue_from ActiveRecord::RecordInvalid, with: :show_errors
   
 Run the production console again.
 
-  rails c production
+    rails c production
   
 And you should see the error raised.
 
-  ~/Documents/name_error_test/app/controllers/application_controller.rb:6:in `<class:ApplicationController>': uninitialized constant ActiveRecord::RecordInvalid (NameError)
+    ~/Documents/name_error_test/app/controllers/application_controller.rb:6:in `<class:ApplicationController>': uninitialized constant ActiveRecord::RecordInvalid (NameError)
 
 ## What I know
 
